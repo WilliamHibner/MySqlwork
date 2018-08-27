@@ -182,14 +182,6 @@ INNER JOIN staff
 
 CREATE VIEW top_five_genres AS
 
-SELECT name, SUM(p.amount)
-FROM category c
-INNER JOIN film_category fc
-INNER JOIN inventory i
-ON i.film_id = fc.film_id
-INNER JOIN rental r
-ON r.inventory_id = i.inventory_id
-INNER JOIN payment p
 GROUP BY name
 LIMIT 5;
 
